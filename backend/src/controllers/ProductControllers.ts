@@ -18,47 +18,36 @@ import { ProductInterface } from "../interfaces/product.interface";
 @JsonController("/products")
 export class ProductController {
   products: ProductInterface[] = [
-    {
-      "id": "uno",
-      "name": "Nombre producto",
-      "description": "Descripción producto",
-      "logo": "assets-1.png",
-      "date_release": new Date(),
-      "date_revision": new Date()
-    },
-    {
-      "id": "uno",
-      "name": "Nombre producto",
-      "description": "Descripción producto",
-      "logo": "assets-1.png",
-      "date_release": new Date(),
-      "date_revision": new Date()
-    },
-    {
-      "id": "uno",
-      "name": "Nombre producto",
-      "description": "Descripción producto",
-      "logo": "assets-1.png",
-      "date_release": new Date(),
-      "date_revision": new Date()
-    },
-    {
-      "id": "uno",
-      "name": "Nombre producto",
-      "description": "Descripción producto",
-      "logo": "assets-1.png",
-      "date_release": new Date(),
-      "date_revision": new Date()
-    },
-    {
-      "id": "uno",
-      "name": "Nombre producto",
-      "description": "Descripción producto",
-      "logo": "assets-1.png",
-      "date_release": new Date(),
-      "date_revision": new Date()
-    }
-  ];
+    { "id": "uno", "name": "Nombre producto", "description": "Descripción producto", "logo": "assets-1.png", "date_release": new Date(), "date_revision": new Date(((new Date()).setFullYear((new Date()).getFullYear() + 1))) },
+    { "id": "dos", "name": "Nombre producto", "description": "Descripción producto", "logo": "assets-1.png", "date_release": new Date(), "date_revision": new Date(((new Date()).setFullYear((new Date()).getFullYear() + 1))) },
+    { "id": "tres", "name": "Nombre producto", "description": "Descripción producto", "logo": "assets-1.png", "date_release": new Date(), "date_revision": new Date(((new Date()).setFullYear((new Date()).getFullYear() + 1))) },
+    { "id": "cuatro", "name": "Nombre producto", "description": "Descripción producto", "logo": "assets-1.png", "date_release": new Date(), "date_revision": new Date(((new Date()).setFullYear((new Date()).getFullYear() + 1))) },
+    { "id": "cinco", "name": "Nombre producto", "description": "Descripción producto", "logo": "assets-1.png", "date_release": new Date(), "date_revision": new Date(((new Date()).setFullYear((new Date()).getFullYear() + 1))) },
+
+    { "id": "seis", "name": "Nombre producto", "description": "Descripción producto", "logo": "assets-1.png", "date_release": new Date(), "date_revision": new Date(((new Date()).setFullYear((new Date()).getFullYear() + 1))) },
+    { "id": "siete", "name": "Nombre producto", "description": "Descripción producto", "logo": "assets-1.png", "date_release": new Date(), "date_revision": new Date(((new Date()).setFullYear((new Date()).getFullYear() + 1))) },
+    { "id": "ocho", "name": "Nombre producto", "description": "Descripción producto", "logo": "assets-1.png", "date_release": new Date(), "date_revision": new Date(((new Date()).setFullYear((new Date()).getFullYear() + 1))) },
+    { "id": "nueve", "name": "Nombre producto", "description": "Descripción producto", "logo": "assets-1.png", "date_release": new Date(), "date_revision": new Date(((new Date()).setFullYear((new Date()).getFullYear() + 1))) },
+    { "id": "diez", "name": "Nombre producto", "description": "Descripción producto", "logo": "assets-1.png", "date_release": new Date(), "date_revision": new Date(((new Date()).setFullYear((new Date()).getFullYear() + 1))) },
+
+    { "id": "once", "name": "Nombre producto", "description": "Descripción producto", "logo": "assets-1.png", "date_release": new Date(), "date_revision": new Date(((new Date()).setFullYear((new Date()).getFullYear() + 1))) },
+    { "id": "doce", "name": "Nombre producto", "description": "Descripción producto", "logo": "assets-1.png", "date_release": new Date(), "date_revision": new Date(((new Date()).setFullYear((new Date()).getFullYear() + 1))) },
+    { "id": "trece", "name": "Nombre producto", "description": "Descripción producto", "logo": "assets-1.png", "date_release": new Date(), "date_revision": new Date(((new Date()).setFullYear((new Date()).getFullYear() + 1))) },
+    { "id": "catorce", "name": "Nombre producto", "description": "Descripción producto", "logo": "assets-1.png", "date_release": new Date(), "date_revision": new Date(((new Date()).setFullYear((new Date()).getFullYear() + 1))) },
+    { "id": "quince", "name": "Nombre producto", "description": "Descripción producto", "logo": "assets-1.png", "date_release": new Date(), "date_revision": new Date(((new Date()).setFullYear((new Date()).getFullYear() + 1))) },
+
+    { "id": "dieciseis", "name": "Nombre producto", "description": "Descripción producto", "logo": "assets-1.png", "date_release": new Date(), "date_revision": new Date(((new Date()).setFullYear((new Date()).getFullYear() + 1))) },
+    { "id": "diecisiete", "name": "Nombre producto", "description": "Descripción producto", "logo": "assets-1.png", "date_release": new Date(), "date_revision": new Date(((new Date()).setFullYear((new Date()).getFullYear() + 1))) },
+    { "id": "dieciocho", "name": "Nombre producto", "description": "Descripción producto", "logo": "assets-1.png", "date_release": new Date(), "date_revision": new Date(((new Date()).setFullYear((new Date()).getFullYear() + 1))) },
+    { "id": "diecinueve", "name": "Nombre producto", "description": "Descripción producto", "logo": "assets-1.png", "date_release": new Date(), "date_revision": new Date(((new Date()).setFullYear((new Date()).getFullYear() + 1))) },
+    { "id": "veinte", "name": "Nombre producto", "description": "Descripción producto", "logo": "assets-1.png", "date_release": new Date(), "date_revision": new Date(((new Date()).setFullYear((new Date()).getFullYear() + 1))) },
+
+    { "id": "veintiuno", "name": "Nombre producto", "description": "Descripción producto", "logo": "assets-1.png", "date_release": new Date(), "date_revision": new Date(((new Date()).setFullYear((new Date()).getFullYear() + 1))) },
+    { "id": "veintidos", "name": "Nombre producto", "description": "Descripción producto", "logo": "assets-1.png", "date_release": new Date(), "date_revision": new Date(((new Date()).setFullYear((new Date()).getFullYear() + 1))) },
+    { "id": "veintitres", "name": "Nombre producto", "description": "Descripción producto", "logo": "assets-1.png", "date_release": new Date(), "date_revision": new Date(((new Date()).setFullYear((new Date()).getFullYear() + 1))) },
+    { "id": "veinticuatro", "name": "Nombre producto", "description": "Descripción producto", "logo": "assets-1.png", "date_release": new Date(), "date_revision": new Date(((new Date()).setFullYear((new Date()).getFullYear() + 1))) },
+    { "id": "veinticinco", "name": "Nombre producto", "description": "Descripción producto", "logo": "assets-1.png", "date_release": new Date(), "date_revision": new Date(((new Date()).setFullYear((new Date()).getFullYear() + 1))) }
+  ]
 
   @Get("")
   getAll() {
