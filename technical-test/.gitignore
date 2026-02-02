@@ -1,0 +1,114 @@
+# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+
+# Compiled / build output
+
+/dist
+.env
+/tmp
+/out-tsc
+/bazel-out
+/out-tsc
+/coverage
+/modules/rollup-test/dist/
+.build-analytics
+.baseline.json
+baseline.json
+
+
+# Node / Package managers
+
+/node_modules
+node_modules/
+modules/ssr-benchmarks/node_modules/
+npm-debug.log
+yarn-error.log
+.pnpm-store
+
+
+# Angular
+
+/.angular/
+/.angular/cache
+
+
+# IDEs and Editors
+
+.idea/
+.project
+.classpath
+.settings/
+modules/.settings
+.c9/
+.c9
+*.launch
+*.sublime-workspace
+
+
+# Visual Studio Code
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/mcp.json
+.history/*
+.history
+modules/.vscode
+
+
+# Dev containers
+
+.devcontainer/*
+!.devcontainer/README.md
+!.devcontainer/recommended-devcontainer.json
+!.devcontainer/recommended-Dockerfile
+
+
+# Logs
+
+*.log
+testem.log
+/libpeerconnection.log
+
+
+# System files
+
+.DS_Store
+Thumbs.db
+
+
+# Miscellaneous
+
+.sass-cache/
+.connect.lock
+/typings
+__screenshots__/
+.notes.md
+.vimrc
+.nvimrc
+*.swo
+*.swp
+
+
+# Bazel / Angular dev
+
+/integration/bazel/bazel-*
+.bazelrc.user
+.ng-dev.user*
+
+
+# Secrets
+
+*secret.js
+
+
+# Husky
+
+.husky/_
+
+
+# Dart / Flutter
+
+pubspec.lock
