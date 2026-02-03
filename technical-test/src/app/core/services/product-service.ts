@@ -11,7 +11,7 @@ import { ApiResponse } from '../models/http-response';
 export class ProductService {
 
   private readonly _httpClient = inject(HttpClient);
-  private readonly _endpoint = `${environment.urlAPI}/products`;
+  private readonly _endpoint = `${environment.urlAPI}`;
 
 
   getProducts(): Observable<Product[]> {

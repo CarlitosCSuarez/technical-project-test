@@ -1,1 +1,10 @@
-<p>list works!</p>
+
+<div class="product-list-content">
+
+    @for (item of pageProducts(); track item.id) {
+        <p>{{item.id}}</p>
+    } @empty {
+        <p>No hay productos para mostrar.</p>
+    }
+    
+</div>

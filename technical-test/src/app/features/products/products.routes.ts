@@ -8,7 +8,7 @@ export const routes: Routes = [
         children: [
             {
                 path: '',
-                loadComponent: () => import('./pages/product-list/product-list').then(m => m.List)
+                loadComponent: () => import('./pages/product-list/product-list').then(m => m.ProductList)
             },
             {
                 path: 'add',
