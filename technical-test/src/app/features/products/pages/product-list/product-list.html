@@ -8,3 +8,29 @@
     }
 
 </div>
+
+@if (totalPages() > 1) {
+
+    <div>
+        <span>select page</span>
+        <select #pageSizeSelection
+            (change)="changePageSize(pageSizeSelection.value)"
+            [value]="pageSize()"
+            name="select-page">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+        </select>
+    </div>
+    
+    <div>
+        <button (click)="prevPage()"
+            [disabled]="currentPage() == 1">Anterior</button>
+        
+        <span>{{paginationInfo()}}</span>
+        
+        <button (click)="nextPage()"
+            [disabled]="currentPage() == totalPages()">Siguiente</button>
+    </div>
+    
+}
