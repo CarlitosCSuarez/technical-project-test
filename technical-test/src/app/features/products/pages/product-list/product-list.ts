@@ -2,11 +2,13 @@ import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { ProductService } from '../../../../core/services/product-service';
 import { Product } from '../../../../core/models/product';
 import { ProductItem } from '../../components/product-item/product-item';
+import { Search } from '../../../../shared/components/search/search';
 
 @Component({
   selector: 'app-list',
   imports: [
     ProductItem,
+    Search,
   ],
   templateUrl: './product-list.html',
   styleUrl: './product-list.scss',
@@ -80,6 +82,11 @@ export class ProductList implements OnInit {
         console.log("Error: No se pudo cargar los datos, ", err);
       }
     });
+  }
+
+
+  searching(value: string): void {
+    console.log(value);
   }
 
 }

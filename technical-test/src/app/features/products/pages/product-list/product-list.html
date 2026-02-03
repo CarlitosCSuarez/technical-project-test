@@ -1,4 +1,8 @@
 
+<app-search
+    (searching)="searching($event)"/>
+
+
 <div class="product-list-content">
 
     @for (item of pageProducts(); track item.id) {
@@ -32,5 +36,5 @@
         <button (click)="nextPage()"
             [disabled]="currentPage() == totalPages()">Siguiente</button>
     </div>
-    
+
 }
