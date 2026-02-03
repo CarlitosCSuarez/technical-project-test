@@ -12,11 +12,11 @@ export const routes: Routes = [
             },
             {
                 path: 'add',
-                loadComponent: () => import('./pages/product-form/product-form').then(m => m.FormProduct)
+                loadComponent: () => import('./pages/product-form/product-form').then(m => m.ProductForm)
             },
             {
                 path: 'edit/:id',
-                loadComponent: () => import('./pages/product-form/product-form').then(m => m.FormProduct)
+                loadComponent: () => import('./pages/product-form/product-form').then(m => m.ProductForm)
             }
         ]
     }

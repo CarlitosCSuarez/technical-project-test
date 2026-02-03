@@ -1,1 +1,98 @@
-<p>form-product works!</p>
+<div class="container-form">
+
+    <h2>Formulario de registro</h2>
+
+    <form
+        [formGroup]="productForm"
+        (ngSubmit)="actionSubmit()"
+    >
+
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input
+                id="id"
+                type="text"
+                formControlName="id"
+            >
+            @if (productForm.get('id')?.invalid && productForm.get('id')?.touched) {
+                <span class="error-msg">ID no válido</span>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="name">Nombre</label>
+            <input
+                id="name"
+                type="text"
+                formControlName="name"
+            >
+            @if (productForm.get('name')?.invalid && productForm.get('name')?.touched) {
+                <span class="error-msg">Este campo es requerido</span>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="description">Descripción</label>
+            <input
+                id="description"
+                type="text"
+                formControlName="description"
+            >
+            @if (productForm.get('description')?.invalid && productForm.get('description')?.touched) {
+                <span class="error-msg">Este campo es requerido</span>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="logo">Logo</label>
+            <input
+                id="logo"
+                type="text"
+                formControlName="logo"
+            >
+            @if (productForm.get('logo')?.invalid && productForm.get('logo')?.touched) {
+                <span class="error-msg">Este campo es requerido</span>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="date_release">Fecha Liberación</label>
+            <input
+                id="date_release"
+                type="date"
+                formControlName="date_release"
+            >
+            @if (productForm.get('date_release')?.invalid && productForm.get('date_release')?.touched) {
+                <span class="error-msg">Este campo es requerido</span>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="date_revision">Fecha Revisión</label>
+            <input
+                id="date_revision"
+                type="date"
+                formControlName="date_revision"
+            >
+            @if (productForm.get('date_revision')?.invalid && productForm.get('date_revision')?.touched) {
+                <span class="error-msg">Este campo es requerido</span>
+            }
+        </div>
+
+        <div class="button-group">
+
+            <app-button
+                [label]="'Reiniciar'"
+                [option]="'secondary'"
+                (action)="resetForm()"/>
+
+            <app-button
+                [disabled]="productForm.invalid"
+                [label]="'Enviar'"
+                (action)="actionSubmit()"/>
+
+        </div>
+
+    </form>
+
+</div>
