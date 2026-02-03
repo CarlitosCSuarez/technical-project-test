@@ -8,7 +8,8 @@ import { Component, input, output } from '@angular/core';
 })
 export class Button {
 
-  label = input<'primary' | 'secondary'>('primary');
+  label = input.required<string>();
+  option = input<'primary' | 'secondary'>('primary');
   disabled = input<boolean>(false);
 
   action = output<void>();
