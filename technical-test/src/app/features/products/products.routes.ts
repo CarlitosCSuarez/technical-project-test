@@ -8,15 +8,15 @@ export const routes: Routes = [
         children: [
             {
                 path: '',
-                loadComponent: () => import('./pages/list/list').then(m => m.List)
+                loadComponent: () => import('./pages/product-list/product-list').then(m => m.List)
             },
             {
                 path: 'add',
-                loadComponent: () => import('./pages/form-product/form-product').then(m => m.FormProduct)
+                loadComponent: () => import('./pages/product-form/product-form').then(m => m.FormProduct)
             },
             {
                 path: 'edit/:id',
-                loadComponent: () => import('./pages/form-product/form-product').then(m => m.FormProduct)
+                loadComponent: () => import('./pages/product-form/product-form').then(m => m.FormProduct)
             }
         ]
     }

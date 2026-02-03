@@ -3,8 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-form-product',
   imports: [],
-  templateUrl: './form-product.html',
-  styleUrl: './form-product.scss',
+  templateUrl: './product-form.html',
+  styleUrl: './product-form.scss',
 })
 export class FormProduct {
 
