@@ -3,12 +3,16 @@ import { ProductService } from '../../../../core/services/product-service';
 import { Product } from '../../../../core/models/product';
 import { ProductItem } from '../../components/product-item/product-item';
 import { Search } from '../../../../shared/components/search/search';
+import { Button } from '../../../../shared/components/button/button';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-list',
   imports: [
     ProductItem,
     Search,
+    Button,
+    RouterLink,
   ],
   templateUrl: './product-list.html',
   styleUrl: './product-list.scss',
