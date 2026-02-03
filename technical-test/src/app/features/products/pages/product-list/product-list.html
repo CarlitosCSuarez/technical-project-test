@@ -2,9 +2,9 @@
 <div class="product-list-content">
 
     @for (item of pageProducts(); track item.id) {
-        <p>{{item.id}}</p>
+        <app-product-item [product]="item"/>
     } @empty {
         <p>No hay productos para mostrar.</p>
     }
-    
+
 </div>
