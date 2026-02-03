@@ -22,6 +22,8 @@ export class ProductList implements OnInit {
   pageSize = signal<number>(5);
   currentPage = signal<number>(1);
 
+  search = signal<string>('');
+
 
   ngOnInit(): void {
     this.setProducts();
@@ -31,17 +33,32 @@ export class ProductList implements OnInit {
   pageProducts = computed(() => {
     let start: number = (this.currentPage() - 1) * this.pageSize();
     let end: number = start + this.pageSize();
-    return this.products().slice(start, end);
+    return this.filterProducts().slice(start, end);
+  });
+
+
+  filterProducts = computed(() => {
+    let value: string = this.search().toLowerCase();
+    let products = this.products();
+    if (!value?.length) {
+      return products;
+    }
+    return products.filter((item: Product) => {
+      let name: string = item.name;
+      let description: string = item.description;
+      let id: string = String(item.id);
+      return name.toLowerCase().includes(value) || description.toLowerCase().includes(value) || id.toLowerCase().includes(value);
+    });
   });
 
 
   totalPages = computed(() => {
-    return this.products().length === 0 ? 0 : Math.ceil(this.products().length / this.pageSize());
+    return this.filterProducts().length === 0 ? 0 : Math.ceil(this.filterProducts().length / this.pageSize());
   });
 
 
   paginationInfo = computed(() => {
-    let totalRegisters: number = this.products().length;
+    let totalRegisters: number = this.filterProducts().length;
     if (totalRegisters === 0) {
       return "Sin resultados";
     }
@@ -86,7 +103,8 @@ export class ProductList implements OnInit {
 
 
   searching(value: string): void {
-    console.log(value);
+    this.search.set(value);
+    this.currentPage.set(1);
   }
 
 }
