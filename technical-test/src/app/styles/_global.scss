@@ -1,0 +1,46 @@
+%appearance-none {
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+
+@mixin border-radius-custom($radius) {
+    border-radius: $radius;
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    -o-border-radius: $radius;
+}
+
+
+@mixin border-custom($width, $color, $sides: false, $style: false) {
+    $style_border: solid;
+
+    @if $style {
+        $style_border: $style;
+    }
+
+    @if not $sides {
+        border: $width $style_border $color;
+    }
+
+    @else {
+        @if string.index("up", $sides) {
+            border-top: $width $style_border $color;
+        }
+
+        @if string.index("bottom", $sides) {
+            border-bottom: $width $style_border $color;
+        }
+
+        @if string.index("left", $sides) {
+            border-left: $width $style_border $color;
+        }
+
+        @if string.index("right", $sides) {
+            border-right: $width $style_border $color;
+        }
+    }
+}
