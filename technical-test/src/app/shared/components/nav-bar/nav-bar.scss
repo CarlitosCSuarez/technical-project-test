@@ -1,6 +1,9 @@
 @use "../../../styles/colors";
 
 .nav-bar {
+    font-family: "Croissant One", serif;
+    font-weight: 300;
+    font-style: normal;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -21,6 +24,7 @@
     }
 
     .material-icons-outlined {
+        font-weight: 300;
         transform: scaley(-1);
         transform-origin: center;
     }
