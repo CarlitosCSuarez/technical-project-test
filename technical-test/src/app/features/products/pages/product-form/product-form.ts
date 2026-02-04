@@ -42,11 +42,21 @@ export class ProductForm implements OnInit {
 
 
   ngOnInit(): void {
+    // Set info product from product id.
     this.activatedRoute.paramMap.subscribe(params => {
       this.productId = params.get('id');
       if (this.productId) {
         this.setProduct();
       }
+    });
+    // Set next year about date revision from date release.
+    this.productForm.get('date_release')?.valueChanges.subscribe((value: string) => {
+      if (!value) {
+        this.productForm.get('date_revision')?.setValue('');
+        return;
+      }
+      const nextYearDate = this.getNextYear(value);
+      this.productForm.get('date_revision')?.setValue(nextYearDate, { emitEvent: false });
     });
   }
 
@@ -125,5 +135,18 @@ export class ProductForm implements OnInit {
       return;
     }
     this.setProduct();
+  }
+
+
+  private getNextYear(dateString: string): string {
+    let [yearStr, monthStr, dayStr] = dateString.split('-');
+    let year: number = Number(yearStr);
+    let month: number = Number(monthStr) - 1;
+    let day: number = Number(dayStr);
+    let date: Date = new Date(year + 1, month, day);
+    let newYear: number = date.getFullYear();
+    let newMonth: string = (date.getMonth() + 1).toString().padStart(2, '0');
+    let newDay: string = date.getDate().toString().padStart(2, '0');
+    return `${newYear}-${newMonth}-${newDay}`;
   }
 }
