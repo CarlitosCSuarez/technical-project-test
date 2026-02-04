@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgClass } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { Button } from '../../../../shared/components/button/button';
 import { ProductService } from '../../../../core/services/product-service';
@@ -13,6 +13,7 @@ import { CustomValidators } from '../../../../shared/utils/custom-validators.val
     CommonModule,
     Button,
     ReactiveFormsModule,
+    NgClass,
   ],
   templateUrl: './product-form.html',
   styleUrl: './product-form.scss',
