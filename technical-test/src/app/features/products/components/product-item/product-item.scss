@@ -8,7 +8,7 @@
 .item-row {
     display: grid;
     grid-template-columns: global.$table-columns;
-    padding: 20px 20px;
+    padding: 10px 20px;
     align-items: center;
     gap: 15px;
     border-bottom: 1px solid #eaecf0;
@@ -23,4 +23,16 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    &.logo {
+        display: flex;
+    }
+
+    img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: auto 0;
+    }
 }
