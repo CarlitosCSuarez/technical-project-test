@@ -27,8 +27,22 @@
         {{ product().date_revision | date:'dd/MM/yyyy' }}
     </div>
 
-    <div class="cell actions">{{ '...' }}</div>
+    <div class="cell actions">
+    
+        <button class="dots-btn" (click)="toggleMenu($event)">
+            &#8942;
+        </button>
 
-    <!-- <a [routerLink]="['/products/edit', product().id]">Editar</a>
-    <span (click)="delete()">Eliminar</span> -->
+        @if (showMenu) {
+            <div class="dropdown-menu">
+                <a [routerLink]="['/products/edit', product().id]" class="menu-item">
+                    Editar
+                </a>
+                <button class="menu-item" (click)="delete($event)">
+                    Eliminar
+                </button>
+            </div>
+        }
+    </div>
+
 </div>

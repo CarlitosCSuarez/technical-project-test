@@ -6,7 +6,7 @@ import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-product-item',
   imports: [
-    // RouterLink,
+    RouterLink,
     DatePipe,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -19,8 +19,19 @@ export class ProductItem {
 
   onDelete = output<void>();
 
-  delete(): void {
+  showMenu = false;
+
+
+  delete(event: Event): void {
+    event.stopPropagation();
+    this.showMenu = !this.showMenu;
     this.onDelete.emit();
+  }
+
+
+  toggleMenu(event: Event) {
+    event.stopPropagation();
+    this.showMenu = !this.showMenu;
   }
 
 }

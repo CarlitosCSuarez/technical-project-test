@@ -11,18 +11,20 @@
     padding: 10px 20px;
     align-items: center;
     gap: 15px;
-    border-bottom: 1px solid #eaecf0;
     transition: background-color 0.2s;
+    @include global.border-custom(1px, var(--iron), "bottom");
 
     &:hover {
-        background-color: #f9fafb;
+        background-color: var(--catskill-white);
     }
 }
 
 .cell {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    &:not(.actions) {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 
     &.logo {
         display: flex;
@@ -31,8 +33,74 @@
     img {
         width: 40px;
         height: 40px;
-        border-radius: 50%;
         object-fit: cover;
         margin: auto 0;
+        @include global.border-radius-custom(50%);
+    }
+}
+
+/* Actions menus */
+
+.actions {
+    position: relative;
+    text-align: right;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 50;
+    min-width: 140px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: fadeIn 0.1s ease-out;
+    background: var(--white);
+    @include global.border-custom(1px, var(--iron));
+    @include global.border-radius-custom(4px);
+    box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.05), 0 12px 16px -4px rgba(0, 0, 0, 0.1);
+}
+
+.dots-btn {
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: #98a2b3;
+    cursor: pointer;
+    padding: 0 10px;
+    line-height: 1;
+    outline: none;
+
+    &:hover {
+        color: #101828;
+    }
+}
+
+.menu-item {
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 12px 16px;
+    font-size: 0.9rem;
+    color: #344054;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+        background-color: #f9fafb;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

@@ -105,6 +105,7 @@ export class ProductList implements OnInit {
     this.productService.getProducts().subscribe({
       next: (productsData: Product[]) => {
         this.products.set(productsData);
+        this.currentPage.set(1);
       },
       error: err => {
         console.log("Error: No se pudo cargar los datos, ", err);
