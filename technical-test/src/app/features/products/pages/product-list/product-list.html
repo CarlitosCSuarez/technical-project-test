@@ -66,10 +66,10 @@
             
                 <div class="action-pages">
                     <button (click)="prevPage()"
-                        [disabled]="currentPage() == 1">Anterior</button>
+                        [ngClass]="{ 'disabled': currentPage() == 1 }">Anterior</button>
                     
                     <button (click)="nextPage()"
-                        [disabled]="currentPage() == totalPages()">Siguiente</button>
+                        [ngClass]="{ 'disabled': currentPage() == totalPages() }">Siguiente</button>
                 </div>
     
                 <div class="select-action">

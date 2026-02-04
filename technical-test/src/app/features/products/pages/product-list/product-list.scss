@@ -94,11 +94,18 @@
                     text-align: center;
                     font-size: 14px;
                     cursor: pointer;
-                    color: var(--astronaut);
-                    background-color: var(--white);
                     @extend %appearance-none;
                     @include global.border-radius-custom(5px);
-                    @include global.border-custom(1px, var(--iron));
+
+                    &:not(.disabled) {
+                        color: var(--astronaut);
+                        background-color: var(--white);
+                        @include global.border-custom(1px, var(--iron));
+                    }
+
+                    &:hover {
+                        background-color: var(--catskill-white);
+                    }
                 }
             }
 
@@ -119,9 +126,16 @@
                     background-color: var(--white);
                     @include global.border-custom(1px, var(--iron));
                     @include global.border-radius-custom(5px);
+
+                    &:hover {
+                        background-color: var(--catskill-white);
+                    }
                 }
             }
         }
     }
 
+    .disabled {
+        @extend %disabled;
+    }
 }

@@ -6,6 +6,7 @@ import { Search } from '../../../../shared/components/search/search';
 import { Button } from '../../../../shared/components/button/button';
 import { RouterLink } from '@angular/router';
 import { Modal } from '../../../../shared/components/modal/modal';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-product-list',
@@ -15,6 +16,7 @@ import { Modal } from '../../../../shared/components/modal/modal';
     Button,
     RouterLink,
     Modal,
+    NgClass,
   ],
   templateUrl: './product-list.html',
   styleUrl: './product-list.scss',
