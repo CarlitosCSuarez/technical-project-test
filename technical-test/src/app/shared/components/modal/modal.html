@@ -1,0 +1,30 @@
+@if (visible()) {
+
+    <div class="modal-overlay">
+
+        <div class="modal-content">
+
+            <p><span>{{ title() }}</span></p>
+            
+            <hr class="divider">
+            
+            <div class="modal-actions">
+
+                <app-button 
+                    label="Cancelar" 
+                    variant="secondary" 
+                    (action)="actionCancel()" 
+                />
+                
+                <app-button 
+                    label="Confirmar" 
+                    variant="primary" 
+                    (action)="actionConfirm()" 
+                />
+
+            </div>
+
+        </div>
+
+    </div>
+}

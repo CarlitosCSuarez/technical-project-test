@@ -1,0 +1,45 @@
+@use "../../../styles/colors";
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--mid-gray-trans);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: var(--white);
+    padding: 2rem 0;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: left;
+
+    p {
+        padding: 0 2rem;
+        margin-top: 0;
+        margin-bottom: 2rem;
+        color: var(--cod-gray);
+    }
+}
+
+.divider {
+    border: 0;
+    border-top: 1px solid var(--bombay);
+    margin: 10px 0;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 25px;
+    justify-content: center;
+}
