@@ -8,7 +8,7 @@ import { RouterLink } from '@angular/router';
 import { Modal } from '../../../../shared/components/modal/modal';
 
 @Component({
-  selector: 'app-list',
+  selector: 'app-product-list',
   imports: [
     ProductItem,
     Search,
