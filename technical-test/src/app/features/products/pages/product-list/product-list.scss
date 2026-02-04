@@ -1,3 +1,4 @@
+@use "../../../../styles/media-screen";
 @use "../../../../styles/colors";
 @use "../../../../styles/global";
 
@@ -13,6 +14,7 @@
         display: flex;
         align-items: center;
         width: 100%;
+        gap: 1rem;
         justify-content: space-between;
     }
 
@@ -30,11 +32,19 @@
             flex-direction: column;
             width: 100%;
 
+            @include media-screen.size-sm {
+                overflow-x: auto;
+            }
+
             .table {
                 width: 100%;
                 font-size: 14px;
                 background: var(--white);
                 @include global.border-radius-custom(3px);
+
+                @include media-screen.size-sm {
+                    min-width: max-content;
+                }
 
                 /* --- HEADER --- */
                 .header-table {
@@ -50,6 +60,9 @@
                     }
 
                     .th {
+                        white-space: wrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
                         font-weight: 500;
                     }
                 }
@@ -68,17 +81,28 @@
         }
 
         .actions-bottom {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
             align-items: center;
             width: 100%;
             gap: 1rem;
-            justify-content: space-between;
+            grid-template-areas:
+                "info actions-page action-select";
+
+            @include media-screen.size("max-width", 728px) {
+                grid-template-columns: 1fr 1fr;
+                grid-template-areas:
+                    "info action-select"
+                    "actions-page actions-page";
+            }
 
             .action-info {
+                grid-area: info;
                 width: 100%;
             }
 
             .action-pages {
+                grid-area: actions-page;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -110,6 +134,7 @@
             }
 
             .select-action {
+                grid-area: action-select;
                 display: flex;
                 align-items: center;
                 justify-content: right;

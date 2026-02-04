@@ -1,0 +1,30 @@
+@mixin size-lg {
+  @media only screen and (max-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin size-md {
+  @media only screen and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin size-sm {
+  @media only screen and (max-width: 832px) {
+    @content;
+  }
+}
+
+@mixin size-xs {
+  @media only screen and (max-width: 580px) {
+    @content;
+  }
+}
+
+// ('max-width',576px)
+@mixin size($type, $screen) {
+  @media only screen and ($type: $screen) {
+    @content;
+  }
+}
