@@ -14,8 +14,16 @@
                 type="text"
                 formControlName="id"
             >
-            @if (productForm.get('id')?.invalid && productForm.get('id')?.touched) {
-                <span class="error-msg">ID no válido</span>
+            @if (productForm.get('id')?.touched) {
+                @if (productForm.get('id')?.hasError('required')) {
+                    <span class="error-msg">ID no válido</span>
+                }
+                @if (productForm.get('id')?.hasError('exists')) {
+                    <span class="error-msg">Este ID ya existe. Intenta nuevamente!</span>
+                }
+                @if (productForm.get('id')?.pending) {
+                    <span class="check-msg">Verificando ID...</span>
+                }
             }
         </div>
 
@@ -62,8 +70,13 @@
                 type="date"
                 formControlName="date_release"
             >
-            @if (productForm.get('date_release')?.invalid && productForm.get('date_release')?.touched) {
-                <span class="error-msg">Este campo es requerido</span>
+            @if (productForm.get('date_release')?.touched) {
+                @if (productForm.get('date_release')?.hasError('required')) {
+                    <span class="error-msg">Este campo es requerido</span>
+                }
+                @if (productForm.get('date_release')?.hasError('pastDate')) {
+                    <span class="error-msg">La fecha no puede ser menor a la actual.</span>
+                }
             }
         </div>
 
@@ -74,8 +87,13 @@
                 type="date"
                 formControlName="date_revision"
             >
-            @if (productForm.get('date_revision')?.invalid && productForm.get('date_revision')?.touched) {
-                <span class="error-msg">Este campo es requerido</span>
+            @if (productForm.get('date_revision')?.touched) {
+                @if (productForm.get('date_revision')?.hasError('required')) {
+                    <span class="error-msg">Este campo es requerido</span>
+                }
+                @if (productForm.hasError('noYearExpected')) {
+                    <span class="error-msg">La fecha de revisión debe ser un año posterior a la liberación.</span>
+                }
             }
         </div>
 

@@ -5,6 +5,7 @@ import { ProductService } from '../../../../core/services/product-service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Product } from '../../../../core/models/product';
+import { CustomValidators } from '../../../../shared/utils/custom-validators.validator';
 
 @Component({
   selector: 'app-form-product',
@@ -25,12 +26,14 @@ export class ProductForm {
 
 
   productForm: FormGroup = this.formBuilder.group({
-    id: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
+    id: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(10)], [CustomValidators.checkUniqueId(this.productService)]],
     name: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(100)]],
     description: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(200)]],
     logo: ['', Validators.required],
-    date_release: ['', Validators.required],
+    date_release: ['', [Validators.required, CustomValidators.checkDateFuture]],
     date_revision: ['', Validators.required],
+  }, {
+    validators: [CustomValidators.checkDateFutureYear]
   });
 
 
