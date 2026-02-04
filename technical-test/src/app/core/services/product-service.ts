@@ -42,8 +42,8 @@ export class ProductService {
 
 
   deleteProduct(productId: string): Observable<string> {
-    let url: string = `${this._endpoint}/delete/${productId}`;
-    return this._httpClient.delete<ApiResponse>(this._endpoint)
+    let url: string = `${this._endpoint}/${productId}`;
+    return this._httpClient.delete<ApiResponse>(url)
       .pipe(map(response => response.message!))
   }
 
