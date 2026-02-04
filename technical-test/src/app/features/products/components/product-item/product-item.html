@@ -19,9 +19,13 @@
         {{ product().description }}
     </div>
 
-    <div class="cell">{{ product().date_release }}</div>
+    <div class="cell">
+        {{ product().date_release | date:'dd/MM/yyyy' }}
+    </div>
 
-    <div class="cell">{{ product().date_revision }}</div>
+    <div class="cell">
+        {{ product().date_revision | date:'dd/MM/yyyy' }}
+    </div>
 
     <div class="cell actions">{{ '...' }}</div>
 
