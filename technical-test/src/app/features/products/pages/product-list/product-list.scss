@@ -1,6 +1,7 @@
 @use "../../../../styles/colors";
 @use "../../../../styles/global";
 
+
 .container-products-list {
     display: flex;
     flex-direction: column;
@@ -21,10 +22,51 @@
         width: 100%;
         gap: 1rem;
         background-color: var(--white);
-        border-radius: 3px;
+        @include global.border-radius-custom(3px);
         padding: 1rem;
 
-        .product-list {}
+        .product-list {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+            .table {
+                background: var(--white);
+                width: 100%;
+                overflow: hidden;
+                @include global.border-radius-custom(3px);
+                font-size: 14px;
+
+                /* --- HEADER --- */
+                .header-table {
+                    background-color: var(--catskill-white);
+                    @include global.border-custom(1px, var(--iron), "bottom");
+
+                    .tr {
+                        display: grid;
+                        grid-template-columns: global.$table-columns;
+                        padding: 20px 20px;
+                        align-items: center;
+                        gap: 15px;
+                    }
+
+                    .th {
+                        font-weight: 500;
+                    }
+                }
+
+                /* --- BODY --- */
+                .body-table {
+                    display: flex;
+                    flex-direction: column;
+
+                    p {
+                        padding: 30px;
+                        text-align: center;
+                    }
+                }
+            }
+        }
 
         .actions-bottom {
             display: flex;

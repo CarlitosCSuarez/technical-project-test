@@ -5,7 +5,7 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-product-item',
   imports: [
-    RouterLink,
+    // RouterLink,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './product-item.html',

@@ -1,6 +1,30 @@
-<div class="product-item">
-    <span>ID {{product().id}}</span>
-    <br>
-    <a [routerLink]="['/products/edit', product().id]">Editar</a>
-    <span (click)="delete()">Eliminar</span>
+<div class="item-row">
+
+    <div class="cell">
+        <img
+            [src]="product().logo"
+            alt="logo"
+        >
+        <!-- onerror="this.src='assets/default.png'" -->
+    </div>
+
+    <div class="cell">
+        <span>{{product().name}}</span>
+    </div>
+
+    <div
+        class="cell description"
+        [title]="product().description"
+    >
+        {{ product().description }}
+    </div>
+
+    <div class="cell">{{ product().date_release }}</div>
+
+    <div class="cell">{{ product().date_revision }}</div>
+
+    <div class="cell actions">{{ '...' }}</div>
+
+    <!-- <a [routerLink]="['/products/edit', product().id]">Editar</a>
+    <span (click)="delete()">Eliminar</span> -->
 </div>

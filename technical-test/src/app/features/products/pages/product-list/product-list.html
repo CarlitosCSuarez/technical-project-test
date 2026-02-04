@@ -17,13 +17,44 @@
 
         <div class="product-list">
 
-            @for (item of pageProducts(); track item.id) {
-                <app-product-item
-                    (onDelete)="onDeleteRequest(item)"
-                    [product]="item"/>
-            } @empty {
-                <p>No hay productos para mostrar.</p>
-            }
+            <div class="table">
+
+                <div class="header-table">
+                    <div class="tr">
+                        <div class="th">
+                            <span>Logo</span>
+                        </div>
+                        <div class="th">
+                            <span>Nombre del producto</span>
+                        </div>
+                        <div class="th">
+                            <span>Descripción</span>
+                        </div>
+                        <div class="th">
+                            <span>Fecha de liberación</span>
+                        </div>
+                        <div class="th">
+                            <span>Fecha de reestructuración</span>
+                        </div>
+                        <div class="th">
+                            <span>...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="body-table">
+
+                    @for (item of pageProducts(); track item.id) {
+                        <app-product-item
+                            (onDelete)="onDeleteRequest(item)"
+                            [product]="item"/>
+                    } @empty {
+                        <p>No hay productos para mostrar.</p>
+                    }
+
+                </div>
+
+            </div>
 
         </div>
     

@@ -1,3 +1,8 @@
+@use 'sass:string';
+
+/* Logo | ID | Nombre | Desc | Fecha 1 | Fecha 2 | Acciones */
+$table-columns: 70px 1fr 1fr 1fr 1fr 50px;
+
 %appearance-none {
     outline: none;
     appearance: none;

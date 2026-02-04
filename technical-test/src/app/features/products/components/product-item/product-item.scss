@@ -1,0 +1,26 @@
+@use "../../../../styles/colors";
+@use "../../../../styles/global";
+
+:host {
+    display: block;
+}
+
+.item-row {
+    display: grid;
+    grid-template-columns: global.$table-columns;
+    padding: 20px 20px;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 1px solid #eaecf0;
+    transition: background-color 0.2s;
+
+    &:hover {
+        background-color: #f9fafb;
+    }
+}
+
+.cell {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
