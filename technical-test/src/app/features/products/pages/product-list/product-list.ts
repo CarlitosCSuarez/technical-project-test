@@ -5,6 +5,7 @@ import { ProductItem } from '../../components/product-item/product-item';
 import { Search } from '../../../../shared/components/search/search';
 import { Button } from '../../../../shared/components/button/button';
 import { RouterLink } from '@angular/router';
+import { Modal } from '../../../../shared/components/modal/modal';
 
 @Component({
   selector: 'app-list',
@@ -13,6 +14,7 @@ import { RouterLink } from '@angular/router';
     Search,
     Button,
     RouterLink,
+    Modal,
   ],
   templateUrl: './product-list.html',
   styleUrl: './product-list.scss',
@@ -27,6 +29,11 @@ export class ProductList implements OnInit {
   currentPage = signal<number>(1);
 
   search = signal<string>('');
+
+  // About modal
+  showDeleteModal = signal<boolean>(false);
+  productToDeleteId = signal<string | null>(null);
+  productToDeleteName = signal<string>('');
 
 
   ngOnInit(): void {
@@ -109,6 +116,36 @@ export class ProductList implements OnInit {
   searching(value: string): void {
     this.search.set(value);
     this.currentPage.set(1);
+  }
+
+
+  closeModal(): void {
+    this.showDeleteModal.set(false);
+    this.productToDeleteId.set(null);
+  }
+
+
+  onDeleteRequest(product: Product): void {
+    this.productToDeleteId.set(String(product.id));
+    this.productToDeleteName.set(product.name);
+    this.showDeleteModal.set(true);
+  }
+
+
+  confirmDelete(): void {
+    if (!this.productToDeleteId()) {
+      return;
+    }
+    this.productService.deleteProduct(String(this.productToDeleteId())).subscribe({
+      next: (deleted: string) => {
+        this.closeModal();
+        this.setProducts();
+      },
+      error: err => {
+        console.log('Error: no pudo ser eliminado! ', err);
+        this.closeModal();
+      }
+    });
   }
 
 }

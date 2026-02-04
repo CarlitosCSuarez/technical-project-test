@@ -2,4 +2,5 @@
     <span>ID {{product().id}}</span>
     <br>
     <a [routerLink]="['/products/edit', product().id]">Editar</a>
+    <span (click)="delete()">Eliminar</span>
 </div>

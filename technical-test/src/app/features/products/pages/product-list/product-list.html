@@ -10,7 +10,9 @@
 <div class="product-list-content">
 
     @for (item of pageProducts(); track item.id) {
-        <app-product-item [product]="item"/>
+        <app-product-item
+            (onDelete)="onDeleteRequest(item)"
+            [product]="item"/>
     } @empty {
         <p>No hay productos para mostrar.</p>
     }
@@ -42,3 +44,11 @@
     </div>
 
 }
+
+
+<app-modal
+    [visible]="showDeleteModal()"
+    [title]="'Estás seguro de eliminar el producto ' + productToDeleteName() + '?'"
+    (onClose)="closeModal()"
+    (onConfirm)="confirmDelete()"
+    />

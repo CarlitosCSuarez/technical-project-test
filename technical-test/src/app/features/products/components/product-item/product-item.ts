@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import { Product } from '../../../../core/models/product';
 import { RouterLink } from '@angular/router';
 
@@ -14,5 +14,11 @@ import { RouterLink } from '@angular/router';
 export class ProductItem {
 
   product = input.required<Product>();
+
+  onDelete = output<void>();
+
+  delete(): void {
+    this.onDelete.emit();
+  }
 
 }
