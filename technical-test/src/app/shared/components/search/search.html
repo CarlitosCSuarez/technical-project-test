@@ -1,5 +1,7 @@
-<div class="search">
-
+<div
+    [ngStyle]="{ 'max-width': maxWidth() }"
+    class="search"
+>
     <input
         #txtSearch
         type="text"
