@@ -12,13 +12,15 @@
 
                 <app-button 
                     label="Cancelar" 
-                    variant="secondary" 
+                    [option]="'secondary'"
+                    [maxWith]="'100%'"
                     (action)="actionCancel()" 
                 />
                 
                 <app-button 
                     label="Confirmar" 
-                    variant="primary" 
+                    [option]="'primary'"
+                    [maxWith]="'100%'"
                     (action)="actionConfirm()" 
                 />
 

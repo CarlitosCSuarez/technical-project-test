@@ -1,0 +1,20 @@
+@use "./styles/colors";
+@use "./styles/global";
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    scroll-behavior: smooth;
+    background-color: var(--aqua-haze);
+    overflow-y: auto;
+    color: var(--abbey);
+
+    app-nav-bar {
+        position: sticky;
+        top: 0;
+        left: 0;
+        z-index: 99;
+    }
+}

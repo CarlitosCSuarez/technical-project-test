@@ -1,3 +1,5 @@
+@use "./app/styles/colors";
+
 /* You can add global styles to this file, and also import other style files */
 
 * {
@@ -50,5 +52,20 @@ body {
             display: inline-block;
             user-select: none;
         }
+    }
+}
+
+app-products {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-width: 1352px;
+    padding: 2rem 2rem;
+    margin: 0 auto;
+    width: 100%;
+
+    app-list {
+        height: 100%;
+        width: 100%;
     }
 }

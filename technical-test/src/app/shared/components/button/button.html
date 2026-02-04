@@ -1,3 +1,8 @@
-<div (click)="actionClick()">
+<div
+    [ngClass]="{ 'primary': option() == 'primary', 'secondary': option() == 'secondary' }"
+    [ngStyle]="{ 'max-width': maxWith() }"
+    class="button"
+    (click)="actionClick()"
+>
     <span>{{label()}}</span>
 </div>

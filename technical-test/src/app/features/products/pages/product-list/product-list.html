@@ -1,50 +1,65 @@
 
-<app-search
-    [maxWidth]="'250px'"
-    (searching)="searching($event)"/>
+<div class="container-products-list">
 
-<app-button
-    [label]="'Agregar'"
-    [routerLink]="['/products/add']"/>
+    <div class="actions-up">
 
+        <app-search
+            [maxWidth]="'250px'"
+            (searching)="searching($event)"/>
+        
+        <app-button
+            [label]="'Agregar'"
+            [routerLink]="['/products/add']"/>
 
-<div class="product-list-content">
+    </div>
 
-    @for (item of pageProducts(); track item.id) {
-        <app-product-item
-            (onDelete)="onDeleteRequest(item)"
-            [product]="item"/>
-    } @empty {
-        <p>No hay productos para mostrar.</p>
-    }
+    <div class="product-list-content">
+
+        <div class="product-list">
+
+            @for (item of pageProducts(); track item.id) {
+                <app-product-item
+                    (onDelete)="onDeleteRequest(item)"
+                    [product]="item"/>
+            } @empty {
+                <p>No hay productos para mostrar.</p>
+            }
+
+        </div>
+    
+        <div class="actions-bottom">
+        
+            @if (totalPages() > 1) {
+    
+                <span class="action-info">{{paginationInfo()}}</span>
+            
+                <div class="action-pages">
+                    <button (click)="prevPage()"
+                        [disabled]="currentPage() == 1">Anterior</button>
+                    
+                    <button (click)="nextPage()"
+                        [disabled]="currentPage() == totalPages()">Siguiente</button>
+                </div>
+    
+                <div class="select-action">
+                    <select #pageSizeSelection
+                        (change)="changePageSize(pageSizeSelection.value)"
+                        [value]="pageSize()"
+                        name="select-page">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                    </select>
+                </div>
+            
+            }
+        
+        </div>
+    
+    </div>
+
 
 </div>
-
-@if (totalPages() > 1) {
-
-    <div>
-        <span>select page</span>
-        <select #pageSizeSelection
-            (change)="changePageSize(pageSizeSelection.value)"
-            [value]="pageSize()"
-            name="select-page">
-            <option value="5">5</option>
-            <option value="10">10</option>
-            <option value="20">20</option>
-        </select>
-    </div>
-    
-    <div>
-        <button (click)="prevPage()"
-            [disabled]="currentPage() == 1">Anterior</button>
-        
-        <span>{{paginationInfo()}}</span>
-        
-        <button (click)="nextPage()"
-            [disabled]="currentPage() == totalPages()">Siguiente</button>
-    </div>
-
-}
 
 
 <app-modal

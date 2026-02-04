@@ -1,0 +1,26 @@
+@use "../../../styles/colors";
+@use "../../../styles/global";
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--astronaut);
+    padding: 0 1rem;
+    height: 42px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    @include global.border-radius-custom(5px);
+}
+
+.primary {
+    background-color: var(--starship);
+    @include global.border-custom(1px, --starship);
+}
+
+.secondary {
+    background-color: var(--athens-gray);
+    @include global.border-custom(1px, --iron);
+}

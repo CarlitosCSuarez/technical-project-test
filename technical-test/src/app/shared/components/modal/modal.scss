@@ -15,7 +15,7 @@
 
 .modal-content {
     background: var(--white);
-    padding: 2rem 0;
+    padding: 1rem 0;
     border-radius: 8px;
     width: 90%;
     max-width: 400px;
@@ -23,16 +23,17 @@
     text-align: left;
 
     p {
-        padding: 0 2rem;
+        padding: 1.5rem 2rem;
         margin-top: 0;
         margin-bottom: 2rem;
         color: var(--cod-gray);
+        font-size: 14px;
     }
 }
 
 .divider {
     border: 0;
-    border-top: 1px solid var(--bombay);
+    border-top: 1px solid var(--iron);
     margin: 10px 0;
 }
 
@@ -42,4 +43,9 @@
     gap: 15px;
     margin-top: 25px;
     justify-content: center;
+    padding: 0 2rem;
+
+    app-button {
+        width: 100%;
+    }
 }
