@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Button } from '../../../../shared/components/button/button';
 import { ProductService } from '../../../../core/services/product-service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Product } from '../../../../core/models/product';
 import { CustomValidators } from '../../../../shared/utils/custom-validators.validator';
@@ -17,12 +17,15 @@ import { CustomValidators } from '../../../../shared/utils/custom-validators.val
   templateUrl: './product-form.html',
   styleUrl: './product-form.scss',
 })
-export class ProductForm {
+export class ProductForm implements OnInit {
 
   private readonly router = inject(Router);
+  private readonly activatedRoute = inject(ActivatedRoute);
   private productService = inject(ProductService);
 
   private formBuilder = inject(FormBuilder);
+
+  productId: string | null = null;
 
 
   productForm: FormGroup = this.formBuilder.group({
@@ -37,14 +40,58 @@ export class ProductForm {
   });
 
 
+  ngOnInit(): void {
+    this.activatedRoute.paramMap.subscribe(params => {
+      this.productId = params.get('id');
+      if (this.productId) {
+        this.setProduct();
+      }
+    });
+  }
+
+
+  setProduct(): void {
+    this.productForm.get('id')?.disable();
+    this.productService.getProduct(String(this.productId)).subscribe({
+      next: (product: Product) => {
+        this.productForm.patchValue({
+          id: product.id,
+          name: product.name,
+          description: product.description,
+          logo: product.logo,
+          date_release: this.formatDateForInput(product.date_release),
+          date_revision: this.formatDateForInput(product.date_revision),
+        });
+      },
+      error: err => {
+        console.log('Error: No se pudo cargar el producto!, ', err);
+      }
+    });
+  }
+
+
+  private formatDateForInput(date: string | Date): string {
+    if (date instanceof Date) {
+      return date.toISOString().split('T')[0];
+    }
+    if (typeof date === 'string') {
+      return date.split('T')[0];
+    }
+    return '';
+  }
+
+
   actionSubmit(): void {
     if (this.productForm.invalid) {
       this.productForm.markAllAsTouched();
       return;
     }
+    this.productId ? this.updateProduct() : this.addProduct();
+  }
 
+
+  addProduct(): void {
     let product: Product = this.productForm.value;
-
     this.productService.addProduct(product).subscribe({
       next: (data: Product) => {
         console.log('Producto creado!');
@@ -57,7 +104,25 @@ export class ProductForm {
   }
 
 
+  updateProduct(): void {
+    let product: Product = this.productForm.getRawValue();
+    this.productService.updateProduct(product).subscribe({
+      next: (data: Product) => {
+        console.log('Producto actualizado!');
+        this.router.navigate(['/products']);
+      },
+      error: err => {
+        console.log('Error: El producto no se pudo actualizar!, ', err);
+      }
+    });
+  }
+
+
   resetForm(): void {
-    this.productForm.reset();
+    if (!this.productId) {
+      this.productForm.reset();
+      return;
+    }
+    this.setProduct();
   }
 }

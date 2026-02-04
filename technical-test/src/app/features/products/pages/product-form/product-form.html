@@ -1,6 +1,10 @@
 <div class="container-form">
 
-    <h2>Formulario de registro</h2>
+    @if (productId) {
+        <h2>Editar producto</h2>
+    } @else {
+        <h2>Formulario de registro</h2>
+    }
 
     <form
         [formGroup]="productForm"

@@ -20,6 +20,14 @@ export class ProductService {
   }
 
 
+  getProduct(productId: string): Observable<Product> {
+    return this._httpClient.get<Product>(`${this._endpoint}/${productId}`)
+      .pipe(map(response => {
+        return response;
+      }));
+  }
+
+
   addProduct(product: Product): Observable<Product> {
     return this._httpClient.post<ApiResponse<Product>>(this._endpoint, product)
       .pipe(map(response => response.data!));
