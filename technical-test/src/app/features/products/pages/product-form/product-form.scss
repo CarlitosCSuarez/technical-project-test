@@ -6,6 +6,7 @@
     display: flex;
     flex-direction: column;
     width: max-content;
+    min-width: 570px;
     justify-content: flex-start;
     margin: 0 auto;
     background-color: var(--white);
@@ -13,6 +14,7 @@
 
     @include media-screen.size("max-width", 728px) {
         width: 100%;
+        min-width: auto;
     }
 
     .head-form {
@@ -42,7 +44,8 @@
         .form-groups {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
+            column-gap: 1.5rem;
+            row-gap: 1rem;
             padding: 0.5rem 2rem;
 
             @include media-screen.size("max-width", 728px) {
@@ -68,13 +71,20 @@
                 width: 100%;
                 background-color: var(--white);
                 @extend %appearance-none;
-                @include global.border-custom(1px, var(--bombay));
                 @include global.border-radius-custom(5px);
+
+                &:not(.error-msg-input) {
+                    @include global.border-custom(1px, var(--bombay));
+                }
             }
 
             .error-msg {
                 color: var(--japonica);
                 font-size: 14px;
+            }
+
+            .error-msg-input {
+                @include global.border-custom(1px, var(--japonica));
             }
 
             .disabled {

@@ -24,7 +24,11 @@
                 <label for="id">ID</label>
                 <input
                     id="id"
-                    [ngClass]="{ 'disabled': productId }"
+                    [ngClass]="{
+                        'disabled': productId,
+                        'error-msg-input': (productForm.get('id')?.hasError('required') ||
+                        productForm.get('id')?.hasError('exists')) && productForm.get('id')?.touched
+                    }"
                     type="text"
                     formControlName="id"
                 >
@@ -45,6 +49,9 @@
                 <label for="name">Nombre</label>
                 <input
                     id="name"
+                    [ngClass]="{
+                        'error-msg-input': productForm.get('name')?.invalid && productForm.get('name')?.touched
+                    }"
                     type="text"
                     formControlName="name"
                 >
@@ -57,6 +64,9 @@
                 <label for="description">Descripción</label>
                 <input
                     id="description"
+                    [ngClass]="{
+                        'error-msg-input': productForm.get('description')?.invalid && productForm.get('description')?.touched
+                    }"
                     type="text"
                     formControlName="description"
                 >
@@ -69,6 +79,9 @@
                 <label for="logo">Logo</label>
                 <input
                     id="logo"
+                    [ngClass]="{
+                        'error-msg-input': productForm.get('logo')?.invalid && productForm.get('logo')?.touched
+                    }"
                     type="text"
                     formControlName="logo"
                 >
@@ -81,6 +94,10 @@
                 <label for="date_release">Fecha Liberación</label>
                 <input
                     id="date_release"
+                    [ngClass]="{
+                        'error-msg-input': (productForm.get('date_release')?.hasError('required') || productForm.get('date_release')?.hasError('pastDate')) &&
+                        productForm.get('date_release')?.touched
+                    }"
                     type="date"
                     formControlName="date_release"
                 >
