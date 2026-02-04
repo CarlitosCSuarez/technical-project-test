@@ -64,6 +64,17 @@
                         overflow: hidden;
                         text-overflow: ellipsis;
                         font-weight: 500;
+
+                        &.icon-info {
+                            display: flex;
+                            align-items: center;
+                            gap: 0.3rem;
+
+                            .material-icons {
+                                font-size: 18px;
+                                color: var(--manatee);
+                            }
+                        }
                     }
                 }
 
@@ -86,13 +97,11 @@
             align-items: center;
             width: 100%;
             gap: 1rem;
-            grid-template-areas:
-                "info actions-page action-select";
+            grid-template-areas: "info actions-page action-select";
 
             @include media-screen.size("max-width", 728px) {
                 grid-template-columns: 1fr 1fr;
-                grid-template-areas:
-                    "info action-select"
+                grid-template-areas: "info action-select"
                     "actions-page actions-page";
             }
 

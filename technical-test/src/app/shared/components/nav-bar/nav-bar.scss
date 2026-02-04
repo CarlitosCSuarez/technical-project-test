@@ -9,7 +9,19 @@
     color: var(--astronaut);
     background-color: var(--white);
 
+    .content-info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: .5rem;
+    }
+
     span {
         cursor: pointer;
+    }
+
+    .material-icons-outlined {
+        transform: scaley(-1);
+        transform-origin: center;
     }
 }
