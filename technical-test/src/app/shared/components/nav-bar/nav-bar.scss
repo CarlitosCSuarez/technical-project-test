@@ -8,4 +8,8 @@
     height: 69px;
     color: var(--astronaut);
     background-color: var(--white);
+
+    span {
+        cursor: pointer;
+    }
 }
